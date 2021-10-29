@@ -3,7 +3,7 @@
 This project illustrates using the Python [eventsourcing](https://github.com/johnbywater/eventsourcing) library using:
 
 * SQLite as a persistent datastore, and
-* Custom domain datatypes using Pythons [dataclasses](https://docs.python.org/3/library/dataclasses.html)
+* Custom domain datatypes using Python [dataclasses](https://docs.python.org/3/library/dataclasses.html)
 
 The purpose isn't to demonstrate complex domain logic: it's about illustrating how the domain, application and persistence work using SQLite and custom domain datatypes.  The domain logic is consequently trivially simple, supporting a list of bookmarks that can be added to.  See [domain.py](bookmarks/domain.py).
 
@@ -19,8 +19,8 @@ This is work in progress.  Currently working:
 ### To Do
 
 1. Retrieve existing aggregates from storage when the app is stopped and re-started
-1. Custom `Bookmark` datatype
-1. Custom Transcoder for serialising and de-serialising `Bookmark`s
+1. Update domain and application classes to use custom `Bookmark` datatype
+1. Create custom Transcoder for serialising and de-serialising `Bookmark`s
 1. Register custom transcoder in the application object at startup
 
 

@@ -1,5 +1,17 @@
+from dataclasses import dataclass
 from typing import Dict
 from eventsourcing.domain import Aggregate, event
+
+
+@dataclass
+class Bookmark:
+    """A simple domain datatype to represent a bookmark.
+       super-simple, because the purpose is to illustrate 
+       adding a custom transcoder for serialising/deserialising
+       datatypes.   
+    """
+    name: str
+    url: str
 
 class BookmarkCollection(Aggregate):
     """A trivially simple collection of bookmarks.
@@ -10,6 +22,7 @@ class BookmarkCollection(Aggregate):
        application and persistence.
     """
 
+    #TODO: update to use Bookmark datatype instead of a pair of strings
     @event("BookmarkCollectionCreated")
     def __init__(self, name: str):
         self.name = name

@@ -8,6 +8,7 @@ import os
 os.environ["INFRASTRUCTURE_FACTORY"] = "eventsourcing.sqlite:Factory"
 os.environ["SQLITE_DBNAME"] = "data/bookmarks.db"
 
+
 class BookmarksApplication(Application):
 
     def __init__(self):
