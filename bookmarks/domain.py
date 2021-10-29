@@ -22,12 +22,12 @@ class BookmarkCollection(Aggregate):
        application and persistence.
     """
 
-    #TODO: update to use Bookmark datatype instead of a pair of strings
     @event("BookmarkCollectionCreated")
     def __init__(self, name: str):
         self.name = name
         self.bookmarks: Dict[str, str] = {}
 
+    #TODO: update to use Bookmark datatype instead of a pair of strings
     @event("BookmarkAdded")
     def add_bookmark(self, name: str, url: str) -> None:
         self.bookmarks[name] = url
