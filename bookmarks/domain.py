@@ -11,7 +11,7 @@ class BookmarkCollection(Aggregate):
     """
 
     @event("BookmarkCollectionCreated")
-    def __init__(self, name: str = "default_bookmark_collection"):
+    def __init__(self, name: str):
         self.name = name
         self.bookmarks: Dict[str, str] = {}
 

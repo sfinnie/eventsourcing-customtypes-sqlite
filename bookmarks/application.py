@@ -12,11 +12,19 @@ class BookmarksApplication(Application):
 
     def __init__(self):
         super().__init__()
-        self.bookmarks: BookmarkCollection = BookmarkCollection()
+        self.bookmarks_id = self.create_bookmark_collection()
+    
+    def create_bookmark_collection(self, name: str = "default_bookmark_collection"):
+        bookmarks = BookmarkCollection(name)
+        self.save(bookmarks)
+        return bookmarks.id
     
     def add_bookmark(self, name: str, url: str):
-        self.bookmarks.add_bookmark(name, url)
-        self.save(self.bookmarks)
+        bookmarks = self.repository.get(self.bookmarks_id)
+        bookmarks.add_bookmark(name, url)
+        self.save(bookmarks)
 
     def get_bookmarks(self):
-        return self.bookmarks.get_bookmarks()
+        bookmarks = self.repository.get(self.bookmarks_id)
+        return bookmarks.get_bookmarks()
+
