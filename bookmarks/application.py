@@ -16,8 +16,7 @@ class BookmarkTranscoding(Transcoding):
 
     def encode(self, obj: Bookmark) -> str:
         assert isinstance(obj, Bookmark)
-        return obj.name
-        # return vars(obj)
+        return vars(obj)
 
     def decode(self, data: dict) -> Bookmark:
         assert isinstance(data, dict)
