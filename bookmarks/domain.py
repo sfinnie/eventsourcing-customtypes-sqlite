@@ -25,12 +25,12 @@ class BookmarkCollection(Aggregate):
     @event("BookmarkCollectionCreated")
     def __init__(self, name: str):
         self.name = name
-        self.bookmarks: Dict[str, str] = {}
+        self.bookmarks: Dict[str, Bookmark] = {}
 
     #TODO: update to use Bookmark datatype instead of a pair of strings
     @event("BookmarkAdded")
-    def add_bookmark(self, name: str, url: str) -> None:
-        self.bookmarks[name] = url
+    def add_bookmark(self, bookmark: Bookmark) -> None:
+        self.bookmarks[bookmark.name] = bookmark
 
     def get_bookmarks(self):
         return self.bookmarks
