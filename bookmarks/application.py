@@ -32,7 +32,7 @@ class BookmarksApplication(Application):
     
     def register_transcodings(self, transcoder: Transcoder):
         super().register_transcodings(transcoder)
-        transcoder.register(BookmarkTranscoding)
+        transcoder.register(BookmarkTranscoding())
 
     def create_bookmark_collection(self, name: str = "default_bookmark_collection"):
         bookmarks = BookmarkCollection(name)
